@@ -18,7 +18,7 @@ export const Card = ({ flags, name, region, country }: CardProps) => {
   };
   return (
     <>
-      <div className="flex flex-col w-full shadow-2xl rounded-lg p-4 ">
+      <div className="flex flex-col w-full shadow-2xl rounded-lg p-4 overflow-hidden">
         <div className="flex w-full h-40 items-center justify-center padding ">
           {isImagePresent ? (
             <img
@@ -38,9 +38,9 @@ export const Card = ({ flags, name, region, country }: CardProps) => {
           </h2>
           <p className="mt-2">Region: {region.toUpperCase()}</p>
         </div>
-        <div className="flex gap-2 flex-col md:flex-row justify-between p-2 mt-2">
+        <div className="flex gap-2 flex-col lg:flex-row justify-between mt-4">
           <button
-            className="flex-1 bg-blue-500 !important hover:bg-blue-600 transition"
+            className="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition"
             onClick={() => {
               setShowModal(true);
             }}
@@ -48,7 +48,7 @@ export const Card = ({ flags, name, region, country }: CardProps) => {
             View Details
           </button>
           <Link to={`/map/${country.latlng[0]}/${country.latlng[1]}`}>
-            <button className="flex-1 hover:bg-blue-600 transition">
+            <button className="flex-1 bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">
               Locate on Map
             </button>
           </Link>

@@ -17,7 +17,7 @@ const MapPage: React.FC = () => {
     <div className="w-full h-full absolute top-0 left-0">
       <MapContainer
         center={isValidLatLng ? latlng : [0, 0]}
-        zoom={3}
+        zoom={5}
         style={{ height: "100%", width: "100%" }}
       >
         <TileLayer

@@ -9,9 +9,11 @@ import MapPage from "./pages/MapPage";
 
 const App = () => {
   const [countries, setCountries] = useState([]);
-
+  const [searchQuery, setSearchQuery] = useState("");
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     const fetchCountries = async () => {
+      setLoading(true);
       const response = await axios.get(`https://restcountries.com/v3.1/all`);
       if (response?.data?.length > 0) {
         const data = response.data.map((eachCountry: Country) => ({
@@ -31,23 +33,46 @@ const App = () => {
         }));
         setCountries(data);
       }
+      setLoading(false);
     };
     fetchCountries();
   }, []);
 
+  const filteredCountries = countries.filter((eachCountry: Country) =>
+    eachCountry?.name?.common?.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="w-full h-full">
-      <Router>
-        <div className="text-center p-6 bg-gradient-to-r from-blue-500 to-teal-500 shadow-lg">
-          <h1 className="text-4xl font-extrabold text-white tracking-wide">
-            Country Explorer
-          </h1>
+      {loading ? (
+        <div className="flex justify-center items-center h-full">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-blue-500"></div>
         </div>
-        <Routes>
-          <Route path="/map/:lat/:lng" element={<MapPage />} />
-          <Route path="/" element={<Countries countries={countries} />} />
-        </Routes>
-      </Router>
+      ) : (
+        <Router>
+          <div className="text-center p-6 bg-gradient-to-r from-blue-500 to-teal-500 shadow-lg">
+            <h1 className="text-4xl font-extrabold text-white tracking-wide">
+              Country Explorer
+            </h1>
+          </div>
+          <div className="flex justify-center items-center p-4">
+            <input
+              type="text"
+              placeholder="Search for a country"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-1/2 p-2 border border-gray-300 rounded-md hover:border-blue-500 transition"
+            />
+          </div>
+          <Routes>
+            <Route path="/map/:lat/:lng" element={<MapPage />} />
+            <Route
+              path="/"
+              element={<Countries countries={filteredCountries} />}
+            />
+          </Routes>
+        </Router>
+      )}
     </div>
   );
 };

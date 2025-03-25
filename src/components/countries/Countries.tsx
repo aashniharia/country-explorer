@@ -10,26 +10,31 @@ export const Countries = ({ countries }: CountryProptypes) => {
   return (
     <>
       <div className="grid grid-cols-4 md:gap-6 gap-4 p-10 ">
-        {countries.slice(0, visibleCards).map((eachCountry: Country) => (
-          <Card
-            name={eachCountry?.name?.common}
-            flags={eachCountry?.flags}
-            region={eachCountry?.region}
-            country={eachCountry}
-          />
-        ))}
+        {countries
+          .slice(0, visibleCards)
+          .map((eachCountry: Country, index: number) => (
+            <Card
+              name={eachCountry?.name?.common}
+              flags={eachCountry?.flags}
+              region={eachCountry?.region}
+              country={eachCountry}
+              key={index}
+            />
+          ))}
       </div>
-      <div className="flex items-center justify-center m-4">
-        <button
-          type="button"
-          className="btn-primary"
-          onClick={() => {
-            setVisibleCards((prev) => prev + NUMBEROFCARDS);
-          }}
-        >
-          Load More
-        </button>
-      </div>
+      {countries.length > visibleCards && (
+        <div className="flex items-center justify-center m-4">
+          <button
+            type="button"
+            className="btn-primary"
+            onClick={() => {
+              setVisibleCards((prev) => prev + NUMBEROFCARDS);
+            }}
+          >
+            Load More
+          </button>
+        </div>
+      )}
     </>
   );
 };
