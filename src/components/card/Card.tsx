@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Modal } from "../modal/Modal";
 import { CardDetails } from "../card-details/CardDetails";
 import { Country } from "../countries/countriesTypes";

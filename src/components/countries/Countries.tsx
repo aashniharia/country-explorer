@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Country } from "./countriesTypes";
 import { Card } from "../card/Card";
 interface CountryProptypes {
