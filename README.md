@@ -1,54 +1,20 @@
-# React + TypeScript + Vite
+# 🌍 Country Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Overview
+**Country Explorer** is a modern and responsive web application that allows users to explore details about different countries worldwide. Built with **React, TypeScript, and Tailwind CSS**, this application fetches data from an **open-source countries API** and presents it in a user-friendly interface. Users can **search for countries**, view detailed information in a **modal**, and use **React-Leaflet** to locate the country on an interactive map.
 
-Currently, two official plugins are available:
+## 🔗 Live Demo
+🌍 **Check out the live application here:** [Country Explorer](https://world-around-us.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Features
+✅ **Search Functionality** – Instantly find any country by name  
+✅ **List of Countries** – View all available countries with their flags  
+✅ **Detailed Country Modal** – Displays key information (name, population, region, capital, etc.)  
+✅ **Locate on Map** – Uses **React-Leaflet** to pinpoint the country’s location  
+✅ **Responsive UI** – Styled with **Tailwind CSS** for a modern look  
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    "react-x": reactX,
-    "react-dom": reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs["recommended-typescript"].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-});
-```
+## 🛠️ Tech Stack
+- **Frontend:** React, TypeScript, Tailwind CSS  
+- **Mapping:** React-Leaflet (OpenStreetMap)  
+- **API:** [REST Countries API](https://restcountries.com/)  
+- **State Management:** React Hooks
