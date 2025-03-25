@@ -9,7 +9,7 @@ export const Countries = ({ countries }: CountryProptypes) => {
   const [visibleCards, setVisibleCards] = useState(NUMBEROFCARDS);
   return (
     <>
-      <div className="grid grid-cols-4 md:gap-6 gap-4">
+      <div className="grid grid-cols-4 md:gap-6 gap-4 p-10 ">
         {countries.slice(0, visibleCards).map((eachCountry: Country) => (
           <Card
             name={eachCountry?.name?.common}

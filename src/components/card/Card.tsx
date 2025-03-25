@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Modal } from "../modal/Modal";
 import { CardDetails } from "../card-details/CardDetails";
 import { Country } from "../countries/countriesTypes";
+import { Link } from "react-router-dom";
 
 interface CardProps {
   flags: { [key: string]: string };
@@ -46,9 +47,11 @@ export const Card = ({ flags, name, region, country }: CardProps) => {
           >
             View Details
           </button>
-          <button className="flex-1 hover:bg-blue-600 transition">
-            Locate on Map
-          </button>
+          <Link to={`/map/${country.latlng[0]}/${country.latlng[1]}`}>
+            <button className="flex-1 hover:bg-blue-600 transition">
+              Locate on Map
+            </button>
+          </Link>
         </div>
       </div>
       {showModal && (

@@ -4,6 +4,7 @@ interface CardDetailProps {
   country: Country;
 }
 export const CardDetails = ({ country }: CardDetailProps) => {
+  // console.log("country", country);
   return (
     <div className="max-w-md mx-auto bg-white  p-6 ">
       <table className="w-full">
